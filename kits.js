@@ -65,20 +65,19 @@ kits.removeRepeat = function(arr) {
   }
   return newArr;
 };
-//计算两个时间的间隔  
-kits.getInterval(star, end) {
+//计算两个时间的间隔
+kits.getInterval = function(start, end) {
   var day, hour, minute, second, interval;
-  interval = end - star;
+  interval = end - start;
   interval = interval / 1000;
   day = Math.round(interval / 60 / 60 / 24);
-  hour = Math.round(interval / 60 / 60 % 24);
-  minute = Math.round(interval / 60 % 60);
+  hour = Math.round((interval / 60 / 60) % 24);
+  minute = Math.round((interval / 60) % 60);
   second = Math.round(interval % 60);
-  day < 10 ? '0' + day : day;
-  hour < 10 ? '0' + hour : hour;
-  minute < 10 ? '0' + minute : minute;
-  second < 10 ? '0' + second : second;
-  return day + '-' + hour + '-' + minute + '-' + second;
- 
-    
-}
+  return {
+    day: day,
+    hour: hour,
+    minute: minute,
+    second: second
+  };
+};
