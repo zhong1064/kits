@@ -48,7 +48,7 @@ kits.randomHex1Color = function() {
   return color.join("");
 };
 //数组去重
-kits.removeRepeat = function() {
+kits.removeRepeat = function(arr) {
   var o = {};
   for (var i = 0; i < arr.length; i++) {
     var index = arr[i];
@@ -61,13 +61,7 @@ kits.removeRepeat = function() {
   //遍历对象 把元素存入新数组
   var newArr = [];
   for (var k in o) {
-    if (o[k] == 1) {
-      newArr.push(k);
-    } else {
-      if (newArr.indexOf(k) == -1) {
-        newArr.push(k);
-      }
-    }
+    newArr.push(k);
   }
-  return newArr
+  return newArr;
 };
