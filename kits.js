@@ -12,23 +12,62 @@ kits.randomColor = function() {
   return (color = "rgb(" + r + "," + g + "," + b + ")");
 };
 // 随机十六进制颜色
-kits.randomHexColor = function () {
-    var arr = ['0','1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'];
-    var color = ['#'];
-    for (var i = 0; i < 6; i++) {
-        var r = kits.randomInt(0, 16);
-        color.push(arr[r]);
-    }
-    return color.join('');
-}
+kits.randomHexColor = function() {
+  var arr = [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f"
+  ];
+  var color = ["#"];
+  for (var i = 0; i < 6; i++) {
+    var r = kits.randomInt(0, 16);
+    color.push(arr[r]);
+  }
+  return color.join("");
+};
 //随机十六进制颜色
-kits.randomHex1Color = function () {
-    var color = ['#'];
-    for (var i = 0; i < 6; i++) {
-        var r = kits.randomInt(0, 16).toString(16);
-        color.push(r);
-        
-      
+kits.randomHex1Color = function() {
+  var color = ["#"];
+  for (var i = 0; i < 6; i++) {
+    var r = kits.randomInt(0, 16).toString(16);
+    color.push(r);
+  }
+  return color.join("");
+};
+//数组去重
+kits.removeRepeat = function() {
+  var o = {};
+  for (var i = 0; i < arr.length; i++) {
+    var index = arr[i];
+    if (o[index]) {
+      o[index]++;
+    } else {
+      o[index] = 1;
     }
-    return color.join('');
-}
+  }
+  //遍历对象 把元素存入新数组
+  var newArr = [];
+  for (var k in o) {
+    if (o[k] == 1) {
+      newArr.push(k);
+    } else {
+      if (newArr.indexOf(k) == -1) {
+        newArr.push(k);
+      }
+    }
+  }
+  return newArr
+};
