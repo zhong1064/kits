@@ -81,3 +81,4 @@ kits.getInterval = function(start, end) {
     second: second
   };
 };
+//使用  var re = kits.getInterval(new Date(2019, 1, 1), new Date());  console.log(re);
