@@ -82,3 +82,26 @@ kits.getInterval = function(start, end) {
   };
 };
 //使用  var re = kits.getInterval(new Date(2019, 1, 1), new Date());  console.log(re);
+//查找字符串
+kits.getString = function(str) {
+  var obj = {};
+  for (var i = 0; i < str.length; i++) {
+    var char = str[i];
+    if (obj[char]) {
+      obj[char]++;
+    } else {
+      obj[char] = 1;
+    }
+  }
+
+  // 遍历对象，统计出现最多的字符和次数
+  var max = 0;
+  var maxChar = "";
+  for (var k in obj) {
+    if (obj[k] > max) {
+      max = obj[k];
+      maxChar = k;
+    }
+  }
+  return [max,maxChar]
+};
