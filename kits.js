@@ -105,3 +105,4 @@ kits.getString = function(str) {
   }
   return [max,maxChar]
 };
+
