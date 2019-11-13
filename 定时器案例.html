@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        margin-top: 100px;
+        margin-left: 100px;
+      }
+      span {
+        display: inline-block;
+        text-align: center;
+        line-height: 60px;
+        width: 60px;
+        height: 60px;
+        background-color: #000;
+        color: #fff;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <span class="hour">1</span>
+      <span class="minute">2</span>
+      <span class="second">3</span>
+    </div>
+  </body>
+  <script>
+    let hour = document.querySelector(".hour");
+    let minute = document.querySelector(".minute");
+    let second = document.querySelector(".second");
+    var inputTime = new Date("2019-11-12 18:00:00");
+    countDown();
+    // 开启定时器
+    setInterval(countDown, 1000);
+    function countDown() {
+      let nowTime = new Date();
+      let times = (inputTime - nowTime) / 1000;
+      let h = parseInt((times / 60 / 60) % 24);
+      h = h < 10 ? "0" + h : h;
+      hour.innerHTML = h;
+      let m = parseInt((times / 60) % 60);
+      m = m < 10 ? "0" + m : m;
+      minute.innerHTML = m;
+      let s = parseInt(times % 60);
+      s = s < 10 ? "0" + s : s;
+      second.innerHTML = s;
+    }
+  </script>
+</html>

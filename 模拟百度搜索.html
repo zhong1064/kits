@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        margin-top: 100px;
+        margin-left: 100px;
+        position: relative;
+      }
+      .top {
+        width: 500px;
+        height: 60px;
+        border: 1px solid #000;
+      }
+      #txt {
+        width: 400px;
+        height: 60px;
+        float: left;
+        padding-left: 6px;
+        font-size: 16px;
+      }
+      #search {
+        width: 98px;
+        height: 60px;
+        float: left;
+      }
+      ul {
+        list-style: none;
+        position: absolute;
+        width: 400px;
+        top: 60px;
+        left: 0;
+        background-color: pink;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <div class="top">
+        <input type="text" id="txt" /><input
+          type="button"
+          value="搜索"
+          id="search"
+        />
+      </div>
+      <ul></ul>
+    </div>
+  </body>
+  <script>
+    let arr1 = [
+      "斗鱼",
+      "小鱼",
+      "鲨鱼",
+      "咸鱼",
+      "花猫",
+      "花猫吃鱼",
+      "老鼠",
+      "老鼠吃猫"
+    ];
+    // 获取相关的元素
+    let txt = document.querySelector("#txt");
+    let ul = document.querySelector("ul");
+    txt.onkeyup = function() {
+      let text = txt.value;
+      if (text == "") {
+        ul.innerHTML = "";
+        return;
+      }
+
+      let temp = [];
+      for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i].indexOf(text) != -1) {
+          temp.push(arr1[i]);
+        }
+      }
+      ul.innerHTML = "";
+      for (let j = 0; j < temp.length; j++) {
+        let li = document.createElement("li");
+        li.innerHTML = temp[j];
+        ul.appendChild(li);
+      }
+    };
+  </script>
+</html>
